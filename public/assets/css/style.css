@@ -52,7 +52,7 @@ p {
     padding: 100px 0;
 }
 
-.mpy-6 {
+.cmy-6 {
     margin: 100px 0;
 }
 
@@ -349,4 +349,214 @@ img.left-road-map {
 
 .roadmap-area {
     margin-top: 30px;
+}
+
+.roadmap {
+    position: relative;
+}
+
+img.shape1 {
+    position: absolute;
+    top: 20%;
+}
+
+img.shape2 {
+    position: absolute;
+    bottom: 20%;
+}
+
+img.shape3 {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+img.shape4 {
+    position: absolute;
+    right: 0;
+    top: 60%;
+}
+
+.team-name-content {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.team-name-content h3 {
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 30px;
+    color: #2a2a2a;
+    text-shadow: 0px 0px 32px rgba(0, 0, 0, 0.05);
+    text-transform: uppercase;
+}
+
+.team-name-content p {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 40px;
+    text-align: center;
+    color: #2b2b2b;
+}
+
+.row-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 50px;
+}
+
+.team-item-img img {
+    width: 100%;
+}
+
+.team-name-content .social-follow ul {
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.team-content {
+    margin-top: 70px;
+}
+
+img.shape-5 {
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+
+.team-sec {
+    position: relative;
+}
+
+
+/* =========================contact area =========== */
+
+.contact-area {
+    background-image: url(../img/contact-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.contact-btn-content {
+    text-align: center;
+    color: #fff;
+}
+
+img.shape-6 {
+    position: absolute;
+    left: 0;
+}
+
+
+/* ===========================faq========================== */
+
+.question {
+    position: relative;
+    margin: 0;
+    padding: 15px 10px;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 107.1%;
+    color: #2a2a2a;
+    text-transform: uppercase;
+}
+
+.answers {
+    font-weight: 300;
+    padding: 0px 15px;
+    margin: 0px 0;
+    height: 0;
+    overflow: hidden;
+    position: relative;
+    opacity: 0;
+    -webkit-transition: 0.7s ease;
+    -moz-transition: 0.7s ease;
+    -o-transition: 0.7s ease;
+    transition: 0.7s ease;
+}
+
+.questions:checked~.answers {
+    height: auto;
+    opacity: 1;
+    padding: 15px;
+    padding-top: 0;
+}
+
+.plus {
+    color: var(--second-color);
+    z-index: 5;
+    line-height: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    transition: 0.3s ease;
+    font-size: 40px;
+}
+
+.questions:checked~.plus {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.questions {
+    display: none;
+}
+
+.faq-div {
+    margin-bottom: 30px;
+    border-radius: 15px;
+    background: linear-gradient( 180deg, #f69f9c 0%, #f4e794 25.52%, #c7fc9f 50.52%, #9bc4ef 75%, #cfb0ef 100%);
+    border: 5px solid rgba(255, 255, 255, 0.2);
+}
+
+.qustion {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.bg-area {
+    background-image: url(../img/faq-star.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.footer-inner {
+    text-align: center;
+    margin-top: 70px;
+}
+
+.faq-content {
+    width: 70%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.footer-area {
+    padding-bottom: 25px;
+}
+
+img.shape-8 {
+    position: absolute;
+    right: 0;
+    bottom: 50px;
+}
+
+img.shape-7 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
