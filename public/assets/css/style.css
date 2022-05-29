@@ -699,4 +699,11 @@ img.shape-7 {
     .question {
         font-size: 20px;
     }
+    .section-title p,
+    .about-des p,
+    .hero-section-left p {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 30px;
+    }
 }
