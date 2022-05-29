@@ -1,153 +1,20 @@
-import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Web3 from "web3";
-import Web3Modal from "web3modal";
 
 function Home() {
   AOS.init();
-  const [navActive, setNavActive] = useState(false);
-  const [sidebarActive, setSidebarActive] = useState(false);
-  const [faqIndex, setFaqIndex] = useState();
-  const [activeIndex, setActiveIndex] = useState(1);
-  // =====================scrill navber fiexd================
-  // ===========================menu toggle===============
-  const _toggleSidebar = () => {
-    setSidebarActive(!sidebarActive);
-  };
-  console.log(activeIndex);
 
-  // ==========================mint valu ==================
-  const [walletConnected, setWalletConnected] = useState(false);
-
-  const [totalMinted, setTotalMinted] = useState(0);
-  const [value, setValue] = useState(1);
-
-  // Contract Info
-  const CONTRACT_ADDRESS = "0x3a3138E49ac51255eDcB9A3C5cFcf8206160a042";
-  const CONTRACT_ABI = [];
-
-  // Connect Wallet
-  const connectWallet = async () => {
-    if (Web3.givenProvider) {
-      const providerOptions = {};
-
-      const web3Modal = new Web3Modal({
-        network: "mainnet",
-        cacheProvider: true,
-        providerOptions,
-      });
-
-      const provider = await web3Modal.connect();
-      const web3 = new Web3(provider);
-
-      web3.eth.net.getId();
-
-      const addresses = await web3.eth.getAccounts();
-      const address = addresses[0];
-
-      const { ethereum } = window;
-
-      const networkId = await ethereum.request({
-        method: "net_version",
-      });
-
-      setWalletConnected(true);
-    } else {
-      window.open("https://metamask.io/download/");
-    }
-  };
-
-  // Fetch
-  useEffect(async () => {
-    if (Web3.givenProvider) {
-      if (walletConnected) {
-        const web3 = new Web3(Web3.givenProvider);
-        await Web3.givenProvider.enable();
-
-        const contract = new web3.eth.Contract(CONTRACT_ABI, CONTRACT_ADDRESS);
-
-        contract.methods
-          .totalSupply()
-          .call()
-          .then((response) => {
-            setTotalMinted(response);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }
-    }
-  }, [walletConnected]);
-
-  // useEffect(() => {
-  //   axios
-  //     .get(
-  //       "https://api.etherscan.io/api?module=stats&action=tokensupply&contractaddress=0x27caC31B750990Eea77EE1bAc612F60590A0195c&apikey=P65RXADWW83PQUNRMN4K7H2NTK8RZ1XPYS"
-  //     )
-  //     .then(function (response) {
-  //       setTotalMinted(response.data.result);
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  // }, []);
-
-  // Mint
-  const mint = async () => {
-    if (value > 0) {
-      if (Web3.givenProvider) {
-        connectWallet();
-
-        const web3 = new Web3(Web3.givenProvider);
-        await Web3.givenProvider.enable();
-
-        const price = 0 * value;
-        var tokens = web3.utils.toWei(price.toString(), "ether");
-        var bntokens = web3.utils.toBN(tokens);
-
-        const contract = new web3.eth.Contract(CONTRACT_ABI, CONTRACT_ADDRESS);
-
-        const addresses = await web3.eth.getAccounts();
-        const address = addresses[0];
-
-        contract.methods
-          .mint(value)
-          .send({ gasLimit: "300000", from: address, value: bntokens })
-          .then((nft) => {
-            alert(
-              "Congratulations you have successfully minted your Wlcked Shark! Check Opensea."
-            );
-
-            contract.methods
-              .totalSupply()
-              .call()
-              .then((response) => {
-                setTotalMinted(response);
-              })
-              .catch((err) => {
-                console.log(err);
-              });
-
-            console.log(nft);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      } else {
-        window.open("https://metamask.io/download/");
-      }
-    } else {
-      alert("Please choose quantity");
-    }
-  };
   return (
     <>
       <div className="hero-section">
         <div className="container">
           <div className="container-inner">
             <div className="row-2">
-              <div className="col-md-6">
+              <div
+                className="col-md-6"
+                data-aos="fade-up"
+                data-aos-duration="1000"
+              >
                 <div className="hero-section-left">
                   <p>
                     Is the world prepared to see ONE BILLION LGBTTQQIAAP unique
@@ -248,13 +115,17 @@ function Home() {
                 </div>
               </div>
 
-              <div className="col-md-6">
+              <div
+                className="col-md-6"
+                data-aos="fade-up"
+                data-aos-duration="1500"
+              >
                 <div className="hero-img">
                   <img src="assets/img/hero.png" alt="" />
                 </div>
               </div>
             </div>
-            <div className="gift-area">
+            <div className="gift-area" data-aos="fade-up">
               <p>
                 GIFT YOUR FRIEND <br /> OR <br /> EDUCATE SOME “OTHER FRIENDS”
               </p>
@@ -268,12 +139,20 @@ function Home() {
         <div className="about-sec cpy-6">
           <div className="container">
             <div className="row-46">
-              <div className="col-md-40">
+              <div
+                className="col-md-40"
+                data-aos="fade-up"
+                data-aos-duration="1000"
+              >
                 <div className="about-img">
                   <img src="assets/img/about.png" alt="" />
                 </div>
               </div>
-              <div className="col-md-60">
+              <div
+                className="col-md-60"
+                data-aos="fade-up"
+                data-aos-duration="1500"
+              >
                 <div className="about-content">
                   <img
                     src="assets/img/icon/about-title.png"
@@ -314,7 +193,11 @@ function Home() {
       <section>
         <div className="collection-area">
           <div className="container">
-            <div className="section-title">
+            <div
+              className="section-title"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
               <img
                 src="assets/img/icon/our-collection.png"
                 alt=""
@@ -327,22 +210,38 @@ function Home() {
                 when user passes the mouse, the card turns (flips) to one
                 picture (like the eye or any other) and then, yes, we use the
                 rainbow colors (so we have to have Red, Orange, Yellow, Green,
-                Blue and Violet - six thumbs total.{" "}
+                Blue and Violet - six thumbs total.
               </p>
             </div>
 
             <div className="collection-content">
               <div className="row-4">
-                <div className="collection-item">
+                <div
+                  className="collection-item"
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                >
                   <img src="assets/img/box1.png" alt="" />
                 </div>
-                <div className="collection-item">
+                <div
+                  className="collection-item"
+                  data-aos="fade-up"
+                  data-aos-duration="1500"
+                >
                   <img src="assets/img/box2.png" alt="" />
                 </div>
-                <div className="collection-item">
+                <div
+                  className="collection-item"
+                  data-aos="fade-up"
+                  data-aos-duration="2000"
+                >
                   <img src="assets/img/box3.png" alt="" />
                 </div>
-                <div className="collection-item">
+                <div
+                  className="collection-item"
+                  data-aos="fade-up"
+                  data-aos-duration="2500"
+                >
                   <img src="assets/img/box4.png" alt="" />
                 </div>
               </div>
@@ -358,7 +257,11 @@ function Home() {
 
       {/* =======================discover area ================== */}
       <section>
-        <div className="discover-area cmy-6">
+        <div
+          className="discover-area cmy-6"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
           <div className="discover-btn">
             <a href="" className="custom-btn">
               DISCOVER US
@@ -396,7 +299,11 @@ function Home() {
           <img src="assets/img/shape3.png" alt="" className="world-c" />
           <img src="assets/img/shape1.png" alt="" className="world-d" />
           <div className="container">
-            <div className="section-title">
+            <div
+              className="section-title"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
               <img
                 src="assets/img/icon/institutes.png"
                 alt=""
@@ -408,7 +315,11 @@ function Home() {
               </p>
             </div>
 
-            <div className="institutes-timer">
+            <div
+              className="institutes-timer"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
               <div className="navigation-timer-text">
                 <p className="time-text-black">FIRST MILLION HIT COUNTDOWN:</p>
                 <div className="timer-area">
@@ -436,7 +347,11 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="institution-item bg-red">
+            <div
+              className="institution-item bg-red"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
               <div className="institution-item-number">
                 <p>INSTITUTION - 1</p>
               </div>
@@ -450,7 +365,11 @@ function Home() {
               </div>
             </div>
 
-            <div className="institution-item bg-yellow">
+            <div
+              className="institution-item bg-yellow"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
               <div className="institution-item-number">
                 <p>INSTITUTION - 2</p>
               </div>
@@ -463,7 +382,11 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="institution-item bg-green">
+            <div
+              className="institution-item bg-green"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
               <div className="institution-item-number">
                 <p>INSTITUTION - 2</p>
               </div>
@@ -476,7 +399,11 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="institution-item bg-purple">
+            <div
+              className="institution-item bg-purple"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
               <div className="institution-item-number">
                 <p>INSTITUTION - 3</p>
               </div>
@@ -489,7 +416,11 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="institution-item bg-blue">
+            <div
+              className="institution-item bg-blue"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
               <div className="institution-item-number">
                 <p>INSTITUTION - 4</p>
               </div>
@@ -502,7 +433,11 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="institution-item bg-blue-light">
+            <div
+              className="institution-item bg-blue-light"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
               <div className="institution-item-number">
                 <p>INSTITUTION - 5</p>
               </div>
@@ -515,7 +450,11 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="institution-item bg-yellow-light ">
+            <div
+              className="institution-item bg-yellow-light "
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
               <div className="institution-item-number">
                 <p>INSTITUTION - 6</p>
               </div>
@@ -545,7 +484,11 @@ function Home() {
             </div>
 
             <div className="roadmap-area">
-              <div className="roadmap-item">
+              <div
+                className="roadmap-item"
+                data-aos="fade-up"
+                data-aos-duration="1000"
+              >
                 <div className="roadmap-item-inner">
                   <h3>stage 1</h3>
                   <p>
@@ -560,7 +503,11 @@ function Home() {
                 />
               </div>
 
-              <div className="roadmap-item">
+              <div
+                className="roadmap-item"
+                data-aos="fade-up"
+                data-aos-duration="1000"
+              >
                 <div className="roadmap-item-inner">
                   <h3>stage 2</h3>
                   <p>
@@ -576,7 +523,11 @@ function Home() {
                 />
               </div>
 
-              <div className="roadmap-item">
+              <div
+                className="roadmap-item"
+                data-aos="fade-up"
+                data-aos-duration="1000"
+              >
                 <div className="roadmap-item-inner">
                   <h3>stage 3</h3>
                   <p>
@@ -591,7 +542,11 @@ function Home() {
                 />
               </div>
 
-              <div className="roadmap-item">
+              <div
+                className="roadmap-item"
+                data-aos="fade-up"
+                data-aos-duration="1000"
+              >
                 <div className="roadmap-item-inner">
                   <h3>stage 4</h3>
                   <p>
@@ -637,7 +592,11 @@ function Home() {
 
             <div className="team-content">
               <div className="row-3">
-                <div className="col-md-4">
+                <div
+                  className="col-md-4"
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                >
                   <div className="team-item">
                     <div className="team-item-img">
                       <img src="assets/img/1.png" alt="" />
@@ -722,7 +681,11 @@ function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="col-md-4">
+                <div
+                  className="col-md-4"
+                  data-aos="fade-up"
+                  data-aos-duration="1500"
+                >
                   <div className="team-item">
                     <div className="team-item-img">
                       <img src="assets/img/2.png" alt="" />
@@ -807,7 +770,11 @@ function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="col-md-4">
+                <div
+                  className="col-md-4"
+                  data-aos="fade-up"
+                  data-aos-duration="2000"
+                >
                   <div className="team-item">
                     <div className="team-item-img">
                       <img src="assets/img/3.png" alt="" />
@@ -901,7 +868,11 @@ function Home() {
       {/* ======================team section end ============= */}
       {/* =====================contact area ============== */}
       <section>
-        <div className="contact-area cmy-6">
+        <div
+          className="contact-area cmy-6"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
           <img src="assets/img/shape2.png" alt="" className="shape-6" />
           <div className="contact-btn-content">
             <a href="" className="custom-btn">
@@ -922,7 +893,11 @@ function Home() {
               </div>
 
               <div className="faq-content">
-                <div class="faq-div">
+                <div
+                  class="faq-div"
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                >
                   <input
                     type="checkbox"
                     id="question1"
@@ -946,7 +921,11 @@ function Home() {
                     </p>
                   </div>
                 </div>
-                <div class="faq-div">
+                <div
+                  class="faq-div"
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                >
                   <input
                     type="checkbox"
                     id="question2"
@@ -970,7 +949,11 @@ function Home() {
                     </p>
                   </div>
                 </div>
-                <div class="faq-div">
+                <div
+                  class="faq-div"
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                >
                   <input
                     type="checkbox"
                     id="question3"
@@ -994,7 +977,11 @@ function Home() {
                     </p>
                   </div>
                 </div>
-                <div class="faq-div">
+                <div
+                  class="faq-div"
+                  data-aos="fade-up"
+                  data-aos-duration="1000"
+                >
                   <input
                     type="checkbox"
                     id="question4"

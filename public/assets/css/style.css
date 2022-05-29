@@ -69,6 +69,7 @@ p {
     display: inline-flex;
     font-weight: 800;
     align-items: center;
+    cursor: pointer;
 }
 
 .custom-btn span {
