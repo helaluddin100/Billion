@@ -57,3 +57,58 @@ a.menu-link {
 a.menu-link:hover {
     color: #b038ce;
 }
+
+.nav-close {
+    display: none;
+}
+
+.nav-open {
+    display: none;
+}
+
+@media screen and (max-width: 1300px) {
+    .navigation-timer {
+        display: block;
+        position: fixed;
+        right: -100%;
+        min-height: 100vh;
+        top: 0;
+        bottom: 0;
+        background: #f6a09b;
+        width: 460px;
+        transition: 0.3s;
+        padding: 10px;
+        padding-top: 200px;
+    }
+    .navigation-timer-text {
+        display: block;
+        text-align: center;
+    }
+    a.info-btn {
+        display: none;
+    }
+    a.menu-link {
+        display: block;
+        text-align: center;
+        margin: 20px 0;
+    }
+    .nav-close {
+        position: absolute;
+        top: 11px;
+        right: 20px;
+        display: block;
+        cursor: pointer;
+    }
+    .nav-open {
+        display: block;
+        cursor: pointer;
+    }
+    .navigation-timer .custom-btn {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.navigation-timer.active {
+    right: 0;
+}

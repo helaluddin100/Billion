@@ -32,6 +32,7 @@ a {
 .container {
     max-width: 1360px;
     margin: auto;
+    padding: 0 10px;
 }
 
 h1,
@@ -73,6 +74,10 @@ p {
 .custom-btn span {
     margin-left: 20px;
     display: flex;
+}
+
+img {
+    max-width: 100%;
 }
 
 
@@ -559,4 +564,133 @@ img.shape-7 {
     position: absolute;
     bottom: 0;
     left: 0;
+}
+
+@media screen and (max-width: 992px) {
+    .row-2 {
+        grid-template-columns: 1fr;
+    }
+    .hero-section-left {
+        text-align: center;
+    }
+    ul.social-ul {
+        justify-content: center;
+    }
+    .hero-section-left img {
+        margin: auto;
+        width: 83%;
+    }
+    .row-46 {
+        grid-template-columns: 100%;
+    }
+    .about-img {
+        text-align: center;
+    }
+    .about-content {
+        text-align: center;
+    }
+    .row-4 {
+        grid-template-columns: 1fr 1fr;
+    }
+    img.shape-8,
+    img.shape-7,
+    img.world-c,
+    img.world-d {
+        display: none;
+    }
+    .road-map-shape {
+        display: none;
+    }
+    img.shape-6 {
+        display: none;
+    }
+    .row-3 {
+        grid-gap: 15px;
+    }
+    .faq-content {
+        width: 95%;
+        margin-top: 20px;
+    }
+    img.shape-5 {
+        display: none;
+    }
+    img.right-road-map {
+        position: relative;
+        right: 0;
+    }
+    img.left-road-map {
+        position: relative;
+        left: 0;
+    }
+    .roadmap-item {
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .row-3 {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 35px;
+    }
+    .contact-area {
+        padding: 50px 0;
+    }
+    .section-title {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .roadmap-item {
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+    }
+    .row-3 {
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 35px;
+    }
+    .contact-area {
+        padding: 50px 0;
+    }
+    .institution-item {
+        display: block;
+        text-align: center;
+        padding: 10px;
+    }
+    .institution-part-amount {
+        justify-content: center;
+        margin-top: 10px;
+    }
+    p.time-text-black {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    img.about-title {
+        width: 60%;
+    }
+    .row-3 {
+        grid-template-columns: 1fr;
+        grid-gap: 35px;
+    }
+    .institution-item-number {
+        font-size: 18px;
+    }
+    .institution-part-amount {
+        font-size: 18px;
+    }
+    .navigation-timer {
+        width: 100%;
+    }
+    .timer-area-item {
+        width: 40px;
+        height: 40px;
+        margin: 4px;
+        font-size: 15px;
+    }
 }
