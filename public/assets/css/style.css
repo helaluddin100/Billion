@@ -693,4 +693,10 @@ img.shape-7 {
         margin: 4px;
         font-size: 15px;
     }
+    .discover-area {
+        padding: 80px 0;
+    }
+    .question {
+        font-size: 20px;
+    }
 }
