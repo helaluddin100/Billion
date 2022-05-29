@@ -1,6 +1,6 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import { Link } from "react-router-dom";
 function Home() {
   AOS.init();
 
@@ -246,9 +246,9 @@ function Home() {
                 </div>
               </div>
 
-              <a href="" className="more-view">
-                CLICK TO CHECK THE FULL GALLERY
-              </a>
+              <Link to="/gallery">
+                <a className="more-view">CLICK TO CHECK THE FULL GALLERY</a>
+              </Link>
             </div>
           </div>
         </div>

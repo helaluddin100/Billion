@@ -708,3 +708,27 @@ img.shape-7 {
         line-height: 30px;
     }
 }
+
+
+/* ===============gallery================== */
+
+.gallery-item img {
+    width: 100%;
+}
+
+.gallery {
+    padding-top: 200px;
+}
+
+.gallery-content {
+    margin-top: 50px;
+}
+
+@media screen and (max-width: 768px) {
+    .gallery {
+        padding-top: 150px;
+    }
+    .gallery-content {
+        margin-top: 15px;
+    }
+}

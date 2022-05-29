@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 import Web3 from "web3";
 import Web3Modal from "web3modal";
+import { Link } from "react-router-dom";
 function Header() {
   const [isOpen, setIsOpen] = React.useState(false);
   const toggle = () => setIsOpen(!isOpen);
@@ -631,9 +632,11 @@ function Header() {
         <div className="container">
           <nav className="navigation">
             <div className="navigation__logo">
-              <a href="#">
-                <img src="assets/img/logo.png" alt="logo" />
-              </a>
+              <Link to="/">
+                <a>
+                  <img src="assets/img/logo.png" alt="logo" />
+                </a>
+              </Link>
             </div>
             <div
               className={
@@ -711,9 +714,10 @@ function Header() {
                   </svg>
                 </a>
               </div>
-              <a href="" className="menu-link">
-                Gallery
-              </a>
+              <Link to="/gallery">
+                <a className="menu-link">Gallery</a>
+              </Link>
+
               <a className="custom-btn" onClick={connectWallet}>
                 {walletConnected ? "Connected" : "Connect Wallet"}
               </a>

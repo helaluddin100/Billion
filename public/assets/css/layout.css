@@ -45,6 +45,7 @@ a.menu-link {
 .header {
     position: absolute;
     width: 100%;
+    z-index: 99;
 }
 
 .navigation-timer-text p.time-text {
